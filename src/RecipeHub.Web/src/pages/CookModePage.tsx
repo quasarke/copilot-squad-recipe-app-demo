@@ -71,7 +71,7 @@ export function CookModePage() {
         <Link to={`/recipes/${numericId}`} className={styles.back}>
           ← Back to recipe
         </Link>
-        <h1 className={styles.heading}>
+        <h1 className={styles.heading} aria-live="polite">
           Step {currentStep} of {step.totalSteps}
         </h1>
       </header>

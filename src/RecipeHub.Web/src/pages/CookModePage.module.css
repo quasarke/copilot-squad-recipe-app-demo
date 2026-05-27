@@ -10,6 +10,8 @@
 .back {
   display: inline-block;
   margin-bottom: 0.75rem;
+  padding: 0.25rem 0;
+  min-height: 24px;
   color: #1d4ed8;
   text-decoration: none;
   font-size: 0.9rem;
