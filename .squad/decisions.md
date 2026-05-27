@@ -46,6 +46,21 @@ Favorites integration tests use contract-first approach with private test-only D
 
 **Owner:** Kyle
 
+### Git Hooks & Pre-Commit Validation
+
+**Domain:** Repository governance
+
+Husky is installed at repo root so Git hooks live at the root and cover both .NET and frontend checks. `pre-commit` runs the root `verify:precommit` script, orchestrating existing frontend lint, frontend tests, and `dotnet test`. No new lint, test, or build tools were added; scripts only orchestrate existing npm and dotnet commands.
+
+**Rationale:**
+- Single unified pre-commit gate prevents bad commits from both backend and frontend
+- Reuses existing validation infrastructure
+- Minimal tooling surface
+
+**Owner:** Kyle
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus
