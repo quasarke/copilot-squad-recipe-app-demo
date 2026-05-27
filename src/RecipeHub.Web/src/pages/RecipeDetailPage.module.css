@@ -10,7 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  color: #555;
+  color: #404040;
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
 }
@@ -37,7 +37,7 @@
 }
 
 .timer {
-  color: #666;
+  color: #4a4a4a;
   font-size: 0.85rem;
   margin-left: 0.5rem;
 }

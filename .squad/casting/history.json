@@ -1,0 +1,23 @@
+{
+  "universe_usage_history": [
+    {
+      "universe": "South Park",
+      "used_at": "2026-05-27T11:41:35Z",
+      "reason": "User requested South Park naming scheme"
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "south-park-2026-05-27": {
+      "assignment_id": "south-park-2026-05-27",
+      "universe": "South Park",
+      "created_at": "2026-05-27T11:41:35Z",
+      "agents": {
+        "cartman": "Lead / Architect",
+        "kenny": "Frontend Dev",
+        "stan": "Backend Dev",
+        "kyle": "Tester / QA"
+      },
+      "requested_by": "Zack Way"
+    }
+  }
+}

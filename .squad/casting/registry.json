@@ -1,0 +1,36 @@
+{
+  "agents": {
+    "cartman": {
+      "persistent_name": "Cartman",
+      "universe": "South Park",
+      "role": "Lead / Architect",
+      "created_at": "2026-05-27T11:41:35Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "kenny": {
+      "persistent_name": "Kenny",
+      "universe": "South Park",
+      "role": "Frontend Dev",
+      "created_at": "2026-05-27T11:41:35Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "stan": {
+      "persistent_name": "Stan",
+      "universe": "South Park",
+      "role": "Backend Dev",
+      "created_at": "2026-05-27T11:41:35Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "kyle": {
+      "persistent_name": "Kyle",
+      "universe": "South Park",
+      "role": "Tester / QA",
+      "created_at": "2026-05-27T11:41:35Z",
+      "legacy_named": false,
+      "status": "active"
+    }
+  }
+}

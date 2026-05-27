@@ -18,11 +18,11 @@
   font-size: 1.1rem;
   margin-right: auto;
   text-decoration: none;
-  color: inherit;
+  color: #1a1a1a;
 }
 
 .nav a {
-  color: #333;
+  color: #1a1a1a;
   text-decoration: none;
   padding: 0.35rem 0.6rem;
   border-radius: 6px;
@@ -33,6 +33,6 @@
 }
 
 .active {
-  background: #eaeaea;
+  background: #e0e0e0;
   font-weight: 600;
 }
