@@ -10,16 +10,17 @@
   cursor: pointer;
   transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
   line-height: 1;
+  min-height: 24px;
 }
 
 .button:disabled {
   cursor: not-allowed;
-  opacity: 0.65;
-  filter: grayscale(0.3);
+  opacity: 0.7;
+  filter: grayscale(0.3) brightness(1.1);
 }
 
 .button:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--color-border-focus, #2563eb);
   outline-offset: 2px;
 }
 
@@ -39,36 +40,36 @@
 
 /* Variants */
 .primary {
-  background-color: #2563eb;
-  color: #fff;
+  background-color: var(--color-button-primary-bg, #2563eb);
+  color: var(--color-button-primary-text, #ffffff);
 }
 .primary:hover:not(:disabled) {
-  background-color: #1d4ed8;
+  background-color: var(--color-button-primary-hover, #1d4ed8);
 }
 
 .secondary {
-  background-color: #fff;
-  color: #1f2937;
-  border-color: #d1d5db;
+  background-color: var(--color-button-secondary-bg, #ffffff);
+  color: var(--color-button-secondary-text, #1a1a1a);
+  border-color: var(--color-button-secondary-border, #d4d4d4);
 }
 .secondary:hover:not(:disabled) {
-  background-color: #f3f4f6;
+  background-color: var(--color-button-secondary-hover, #f5f5f5);
 }
 
 .ghost {
   background-color: transparent;
-  color: #1f2937;
+  color: var(--color-button-ghost-text, #1a1a1a);
 }
 .ghost:hover:not(:disabled) {
-  background-color: #f3f4f6;
+  background-color: var(--color-button-ghost-hover, #f5f5f5);
 }
 
 .danger {
-  background-color: #dc2626;
-  color: #fff;
+  background-color: var(--color-button-danger-bg, #dc2626);
+  color: var(--color-button-danger-text, #ffffff);
 }
 .danger:hover:not(:disabled) {
-  background-color: #b91c1c;
+  background-color: var(--color-button-danger-hover, #b91c1c);
 }
 
 /* Inline loading spinner */

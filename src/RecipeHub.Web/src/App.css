@@ -2,10 +2,11 @@ main {
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem;
+  color: var(--color-text-primary, #1a1a1a);
 }
 
 .debug {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.875rem;
-  color: #4a4a4a;
+  color: var(--color-text-secondary, #333333);
 }

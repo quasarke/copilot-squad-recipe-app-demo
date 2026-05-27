@@ -1,16 +1,17 @@
 .page {
   min-height: 100vh;
+  background-color: var(--color-bg-primary, #ffffff);
 }
 
 .topBar {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border-default, #d4d4d4);
 }
 
 .brand {
   font-weight: 700;
   font-size: 1.1rem;
-  color: #222;
+  color: var(--color-text-primary, #1a1a1a);
   text-decoration: none;
 }
 
@@ -22,14 +23,16 @@
 
 .title {
   margin: 0 0 0.5rem;
+  color: var(--color-text-primary, #1a1a1a);
 }
 
 .meta {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  color: #555;
-  font-size: 0.9rem;
+  color: var(--color-text-secondary, #333333);
+  font-size: 0.9375rem;
+  font-weight: 500;
   margin-bottom: 0.75rem;
 }
 
@@ -41,8 +44,9 @@
 }
 
 .description {
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
+  color: var(--color-text-primary, #1a1a1a);
 }
 
 .steps {
@@ -52,19 +56,22 @@
 
 .step {
   margin-bottom: 0.5rem;
+  color: var(--color-text-primary, #1a1a1a);
 }
 
 .timer {
-  color: #666;
-  font-size: 0.85rem;
+  color: var(--color-text-secondary, #333333);
+  font-size: 0.875rem;
+  font-weight: 500;
   margin-left: 0.5rem;
 }
 
 .footer {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid #eee;
-  font-size: 0.9rem;
+  border-top: 1px solid var(--color-border-default, #d4d4d4);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary, #333333);
 }
 
 .notFound,
@@ -74,9 +81,14 @@
 }
 
 .error {
-  color: #a33;
+  color: var(--color-text-error, #991b1b);
+  background-color: var(--color-bg-error, #fef2f2);
+  border: 1px solid var(--color-border-error, #fca5a5);
+  border-radius: 8px;
+  font-weight: 500;
 }
 
 .notFound h1 {
   margin-top: 0;
+  color: var(--color-text-primary, #1a1a1a);
 }

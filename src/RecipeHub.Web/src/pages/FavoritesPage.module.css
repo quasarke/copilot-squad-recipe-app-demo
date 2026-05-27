@@ -13,12 +13,14 @@
 .header h1,
 .empty h2 {
   margin: 0;
+  color: var(--color-text-primary, #1a1a1a);
 }
 
 .header p,
 .empty p {
   margin: 0;
-  color: #4a4a4a;
+  color: var(--color-text-secondary, #333333);
+  font-weight: 500;
 }
 
 .grid {
@@ -35,8 +37,8 @@
 }
 
 .description {
-  color: #444;
-  font-size: 0.95rem;
+  color: var(--color-text-secondary, #333333);
+  font-size: 0.9375rem;
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -56,8 +58,9 @@
   display: flex;
   justify-content: space-between;
   gap: 0.75rem;
-  color: #4a4a4a;
-  font-size: 0.9rem;
+  color: var(--color-text-secondary, #333333);
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 
 .cardFooter {
@@ -77,9 +80,9 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  border: 1px dashed #d4d4d8;
+  border: 1px dashed var(--color-border-default, #d4d4d4);
   border-radius: 16px;
-  background: #fafafa;
+  background: var(--color-bg-secondary, #f5f5f5);
 }
 
 .emptyAction {
@@ -87,7 +90,11 @@
 }
 
 .error {
-  color: #a33;
+  color: var(--color-text-error, #991b1b);
+  background-color: var(--color-bg-error, #fef2f2);
+  border: 1px solid var(--color-border-error, #fca5a5);
+  border-radius: 8px;
+  font-weight: 500;
 }
 
 @media (max-width: 640px) {
