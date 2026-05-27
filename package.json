@@ -1,0 +1,20 @@
+{
+  "name": "copilot-squad-recipe-app",
+  "version": "1.0.0",
+  "description": "Squad Demo Recipe App",
+  "homepage": "https://github.com/seiggy/copilot-squad-recipe-app#readme",
+  "bugs": {
+    "url": "https://github.com/seiggy/copilot-squad-recipe-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seiggy/copilot-squad-recipe-app.git"
+  },
+  "license": "MIT",
+  "author": "Zack Way",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  }
+}
