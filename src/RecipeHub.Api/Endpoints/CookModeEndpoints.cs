@@ -34,7 +34,7 @@ public static class CookModeEndpoints
 
         var step = await db.RecipeSteps
             .AsNoTracking()
-            .Where(s => s.RecipeId == id && s.StepNumber == stepNumber - 1)
+            .Where(s => s.RecipeId == id && s.StepNumber == stepNumber)
             .FirstOrDefaultAsync(ct);
 
         if (step is null)
