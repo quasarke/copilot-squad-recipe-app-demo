@@ -27,6 +27,19 @@ export interface RecipeDetail extends Recipe {
   updatedAt: string;
 }
 
+export interface Favorite {
+  recipeId: number;
+  recipeTitle: string;
+  recipeDescription: string | null;
+  recipeDifficulty: Difficulty;
+  recipePrepTimeMinutes: number;
+  recipeCookTimeMinutes: number;
+  recipeServings: number;
+  recipeImageUrl: string | null;
+  recipeTagNames: string[];
+  favoritedAt: string;
+}
+
 export interface CreateRecipeRequest {
   title: string;
   description: string | null;

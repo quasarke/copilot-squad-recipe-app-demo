@@ -1,7 +1,14 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Badge, Button, Spinner } from '../components/ui';
 import { ShareButton } from '../components/recipe';
-import { useDeleteRecipe, useRecipe } from '../hooks';
+import {
+  useAddFavorite,
+  useDeleteRecipe,
+  useFavorites,
+  useIsFavorite,
+  useRecipe,
+  useRemoveFavorite,
+} from '../hooks';
 import styles from './RecipeDetailPage.module.css';
 
 export function RecipeDetailPage() {
@@ -9,6 +16,10 @@ export function RecipeDetailPage() {
   const numericId = id ? Number.parseInt(id, 10) : undefined;
   const navigate = useNavigate();
   const { data, isLoading, isError, error } = useRecipe(numericId);
+  const favoritesQuery = useFavorites();
+  const isFavorite = useIsFavorite(numericId ?? -1);
+  const addFavoriteMutation = useAddFavorite();
+  const removeFavoriteMutation = useRemoveFavorite();
   const deleteMutation = useDeleteRecipe();
 
   if (isLoading) {
@@ -31,6 +42,22 @@ export function RecipeDetailPage() {
       onSuccess: () => navigate('/recipes'),
     });
   };
+
+  const handleFavoriteToggle = () => {
+    if (numericId === undefined) {
+      return;
+    }
+
+    if (isFavorite) {
+      removeFavoriteMutation.mutate(numericId);
+      return;
+    }
+
+    addFavoriteMutation.mutate(numericId);
+  };
+
+  const favoriteMutationPending =
+    addFavoriteMutation.isPending || removeFavoriteMutation.isPending;
 
   const sortedSteps = [...data.steps].sort((a, b) => a.stepNumber - b.stepNumber);
 
@@ -78,6 +105,14 @@ export function RecipeDetailPage() {
         <Link to={`/recipes/${numericId}/cook`}>
           <Button variant="secondary">Cook Mode</Button>
         </Link>
+        <Button
+          variant="secondary"
+          onClick={handleFavoriteToggle}
+          loading={favoriteMutationPending}
+          disabled={favoritesQuery.isLoading}
+        >
+          {isFavorite ? 'Unfavorite' : '♡ Favorite'}
+        </Button>
         <ShareButton recipeId={numericId} />
         <Button
           variant="danger"

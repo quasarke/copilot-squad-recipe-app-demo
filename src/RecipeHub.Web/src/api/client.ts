@@ -1,6 +1,7 @@
 import type {
   CookModeDto,
   CreateRecipeRequest,
+  Favorite,
   Recipe,
   RecipeDetail,
   ShareDto,
@@ -35,6 +36,11 @@ function resolveBaseUrl(): string {
 }
 
 const BASE_URL = resolveBaseUrl();
+const DEFAULT_USER_ID = 'default-user';
+
+function resolveUserId(userId?: string): string {
+  return userId && userId.length > 0 ? userId : DEFAULT_USER_ID;
+}
 
 async function request<T>(
   path: string,
@@ -105,6 +111,25 @@ export const apiClient = {
 
   getCookStep: (recipeId: number, stepNumber: number): Promise<CookModeDto> =>
     request<CookModeDto>(`/api/recipes/${recipeId}/cook/steps/${stepNumber}`),
+
+  listFavorites: (userId?: string): Promise<Favorite[]> => {
+    const params = new URLSearchParams({ userId: resolveUserId(userId) });
+    return request<Favorite[]>(`/api/favorites?${params.toString()}`);
+  },
+
+  addFavorite: (recipeId: number, userId?: string): Promise<Favorite> =>
+    request<Favorite>(
+      '/api/favorites',
+      jsonInit('POST', { userId: resolveUserId(userId), recipeId })
+    ),
+
+  removeFavorite: (recipeId: number, userId?: string): Promise<void> => {
+    const params = new URLSearchParams({ userId: resolveUserId(userId) });
+    return request<void>(`/api/favorites/${recipeId}?${params.toString()}`, {
+      method: 'DELETE',
+      parseJson: false,
+    });
+  },
 
   searchRecipes: (q: string, tag?: string): Promise<Recipe[]> => {
     const params = new URLSearchParams();
