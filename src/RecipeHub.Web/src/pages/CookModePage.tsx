@@ -12,13 +12,13 @@ function formatSeconds(total: number): string {
 function StepTimer({ minutes }: { minutes: number }) {
   const { remainingSeconds, isRunning, start, pause, reset } = useTimer(minutes);
   return (
-    <div className={styles.timer}>
-      <span className={styles.timerDisplay} aria-live="polite">
+    <div className={styles.timer} role="timer" aria-label={`Recipe step timer, ${minutes} minutes`}>
+      <span className={styles.timerDisplay} aria-live="polite" aria-atomic="true">
         {formatSeconds(remainingSeconds)}
       </span>
       <div className={styles.timerControls}>
         {isRunning ? (
-          <Button size="sm" variant="secondary" onClick={pause}>
+          <Button size="sm" variant="secondary" onClick={pause} aria-label="Pause timer">
             Pause
           </Button>
         ) : (
@@ -27,11 +27,12 @@ function StepTimer({ minutes }: { minutes: number }) {
             variant="primary"
             onClick={start}
             disabled={remainingSeconds === 0}
+            aria-label={remainingSeconds === 0 ? 'Timer finished' : 'Start timer'}
           >
             Start
           </Button>
         )}
-        <Button size="sm" variant="ghost" onClick={reset}>
+        <Button size="sm" variant="ghost" onClick={reset} aria-label="Reset timer">
           Reset
         </Button>
       </div>
@@ -46,7 +47,7 @@ export function CookModePage() {
     useCookMode(numericId);
 
   if (!Number.isFinite(numericId)) {
-    return <div className={styles.error}>Invalid recipe.</div>;
+    return <div className={styles.error} role="alert">Invalid recipe.</div>;
   }
 
   if (isLoading && !step) {
@@ -55,7 +56,7 @@ export function CookModePage() {
 
   if (error || !step) {
     return (
-      <div className={styles.error}>
+      <div className={styles.error} role="alert">
         Couldn't load cook mode. {error instanceof Error ? error.message : ''}
         <div>
           <Link to={`/recipes/${numericId}`}>Back to recipe</Link>
@@ -84,10 +85,10 @@ export function CookModePage() {
       ) : null}
 
       <nav className={styles.controls} aria-label="Step navigation">
-        <Button variant="secondary" onClick={prev} disabled={!canPrev}>
+        <Button variant="secondary" onClick={prev} disabled={!canPrev} aria-label="Previous step">
           Previous
         </Button>
-        <Button variant="primary" onClick={next} disabled={!canNext}>
+        <Button variant="primary" onClick={next} disabled={!canNext} aria-label={canNext ? 'Next step' : 'Last step - return to recipe'}>
           Next
         </Button>
       </nav>
