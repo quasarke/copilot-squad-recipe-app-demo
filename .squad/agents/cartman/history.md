@@ -37,4 +37,6 @@ Screenshot evidence (`copilot-image-1692f6.png`) revealed Cook Mode instruction 
 
 **Gated by:** Kyle will verify WCAG compliance post-implementation using WebAIM Contrast Checker, keyboard navigation, screen reader testing (NVDA/JAWS), touch target sizing at 375px viewport, **and dark mode testing** (OS dark mode enabled).
 
+**Process Decision (2026-05-27):** Established mandatory Playwright/browser validation for all UI work. Static CSS inspection is insufficient — PR #5 was approved based on CSS inspection alone but failed when rendered with OS dark mode enabled. All future UI PRs must include Playwright validation evidence (screenshots, traces) and reviewers must pull/test locally before approval. Documented in `.squad/decisions/inbox/cartman-ui-validation-mandate.md`.
+
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
