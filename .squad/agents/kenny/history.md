@@ -8,3 +8,8 @@
 ## Learnings
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
+- 2026-05-27: Favorites now follow the shared frontend data flow: API methods live in `src/RecipeHub.Web/src/api/client.ts`, query keys in `src/RecipeHub.Web/src/hooks/queryKeys.ts`, and TanStack Query wrappers in `src/RecipeHub.Web/src/hooks/useFavorites.ts`.
+- 2026-05-27: Until auth exists, the frontend favorites flow hardcodes `default-user` in the shared API client so pages and hooks do not thread user IDs through components. The backend also supports default-user fallback, creating a stable seam for eventual auth swap.
+- 2026-05-27: Favorites UI lives in `src/RecipeHub.Web/src/pages/FavoritesPage.tsx` as clickable recipe cards with nested remove actions that stop propagation, and `src/RecipeHub.Web/src/pages/RecipeDetailPage.tsx` owns the detail-page favorite toggle.
+- 2026-05-27: Frontend validation for RecipeHub.Web is `npm run lint`, `npm run test`, and `npm run build` from `src/RecipeHub.Web`.
+- 2026-05-27: Backend favorites responses include recipe-prefixed fields (`recipeTitle`, `recipeTagNames`, etc.) alongside legacy aliases for compatibility during contract transition; coordinate DTO shape finalization with backend when ready.

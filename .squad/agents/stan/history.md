@@ -8,3 +8,7 @@
 ## Learnings
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
+- Favorites now follow the same Minimal API pattern as recipes in `src/RecipeHub.Api/Endpoints/FavoriteEndpoints.cs`: async private handlers, `RecipeDbContext` injection, `CancellationToken`, and a private DTO mapper.
+- Favorite responses are flattened recipe snapshots from `src/RecipeHub.Api/Dtos/FavoriteDto.cs`, including `FavoritedAt`; the DTO also keeps legacy field aliases (`Title`, `Description`, `TagNames`, etc.) so existing clients/tests keep working while recipe-prefixed fields are available.
+- The favorites request boundary lives in `src/RecipeHub.Api/Dtos/AddFavoriteRequest.cs`, and the contract is covered by `tests/RecipeHub.Api.Tests/FavoriteEndpointTests.cs` with unique `userId` values because `RecipeApiFactory` shares one seeded SQLite database per test class.
+- Favorites API intentionally keeps default-user fallback to support frontend hardcoding of `default-user` userId until authentication exists; this pattern lets the frontend and tests remain stable when auth is eventually plugged in (single swap point).

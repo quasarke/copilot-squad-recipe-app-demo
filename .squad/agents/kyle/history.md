@@ -8,3 +8,7 @@
 ## Learnings
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
+- `tests\RecipeHub.Api.Tests\TestBase.cs` provides `RecipeApiFactory`, a shared `WebApplicationFactory<Program>` that uses one temp-file SQLite database per test class, applies migrations, and boots the app with seeded data.
+- `src\RecipeHub.Api\Data\SeedData.cs` seeds 12 sample recipes with stable IDs starting at 1 and leaves `Favorites` empty, which makes contract-first favorites integration tests straightforward.
+- When API tests share the same factory-backed database, use unique `userId` values per test to avoid cross-test state bleed while still using `IClassFixture<RecipeApiFactory>`.
+- Favorites integration tests (`tests/RecipeHub.Api.Tests/FavoriteEndpointTests.cs`) use contract-first approach with private test-only DTOs, allowing QA to land full coverage (12 tests: CRUD flow, 404, 409 duplicate, per-user isolation, default-user) before backend DTO shape is finalized.

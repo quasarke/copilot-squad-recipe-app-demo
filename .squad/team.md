@@ -26,3 +26,9 @@
 - **Stack:** .NET 10, Aspire 13.2, EF Core 10, SQLite, React 19, TypeScript, Vite 6, TanStack Query v5, xUnit
 - **Universe:** South Park
 - **Created:** 2026-05-27
+
+## Issue Source
+
+- **Repository:** quasarke/copilot-squad-recipe-app-demo
+- **Connected:** 2026-05-27
+- **Filters:** all open issues
