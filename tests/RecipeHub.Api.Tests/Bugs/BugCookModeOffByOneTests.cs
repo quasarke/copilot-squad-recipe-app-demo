@@ -30,7 +30,7 @@ public class BugCookModeOffByOneTests : IClassFixture<RecipeApiFactory>
         _factory = factory;
     }
 
-    [Fact(Skip = "BUG-001: Cook Mode off-by-one - Challenge 05")]
+    [Fact]
     public async Task GetStep1_ShouldReturnFirstStep_NotSecond()
     {
         // Arrange: the first seeded recipe is "Classic Margherita Pizza" (ID 1)
@@ -52,7 +52,7 @@ public class BugCookModeOffByOneTests : IClassFixture<RecipeApiFactory>
         Assert.Equal(firstStep.Instruction, dto.Instruction);
     }
 
-    [Fact(Skip = "BUG-001: Cook Mode off-by-one - Challenge 05")]
+    [Fact]
     public async Task GetStep2_ShouldReturnSecondStep()
     {
         var client = _factory.CreateClient();
@@ -70,7 +70,7 @@ public class BugCookModeOffByOneTests : IClassFixture<RecipeApiFactory>
         Assert.Equal(secondStep.Instruction, dto.Instruction);
     }
 
-    [Fact(Skip = "BUG-001: Cook Mode off-by-one - Challenge 05")]
+    [Fact]
     public async Task GetStepBeyondTotal_ShouldReturn404()
     {
         var client = _factory.CreateClient();
